@@ -10,10 +10,7 @@ import com.zzy.zzypicturebackend.constant.UserConstant;
 import com.zzy.zzypicturebackend.exception.BusinessException;
 import com.zzy.zzypicturebackend.exception.ErrorCode;
 import com.zzy.zzypicturebackend.exception.ThrowUtils;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureEditRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureQueryRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureUpdateRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureUploadRequest;
+import com.zzy.zzypicturebackend.model.dto.picture.*;
 import com.zzy.zzypicturebackend.model.entity.Picture;
 import com.zzy.zzypicturebackend.model.entity.User;
 import com.zzy.zzypicturebackend.model.vo.PictureTagCategory;
@@ -205,6 +202,32 @@ public class PictureController {
         pictureTagCategory.setCategoryList(categoryList);
         return ResultUtils.success(pictureTagCategory);
     }
+    /**
+     * 审核图片
+     */
+    @PostMapping("/review")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
+    public BaseResponse<Boolean> doPictureReview(@RequestBody PictureReviewRequest pictureReviewRequest,
+                                                 HttpServletRequest request) {
+        ThrowUtils.throwIf(pictureReviewRequest == null, ErrorCode.PARAMS_ERROR);
+        User loginUser = userService.getLoginUser(request);
+        pictureService.doPictureReview(pictureReviewRequest, loginUser);
+        return ResultUtils.success(true);
+    }
+
+    /**
+     * 批量抓取并创建图片
+     */
+    @PostMapping("/upload/batch")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
+    public BaseResponse<Integer> uploadPictureByBatch(@RequestBody PictureUploadByBatchRequest pictureUploadByBatchRequest,
+                                                      HttpServletRequest request) {
+        ThrowUtils.throwIf(pictureUploadByBatchRequest == null, ErrorCode.PARAMS_ERROR);
+        User loginUser = userService.getLoginUser(request);
+        int uploadCount = pictureService.uploadPictureByBatch(pictureUploadByBatchRequest, loginUser);
+        return ResultUtils.success(uploadCount);
+    }
+
 
 
 }

@@ -3,21 +3,26 @@ package com.zzy.zzypicturebackend.model.dto.picture;
 import lombok.Data;
 
 import java.io.Serializable;
+
 @Data
-public class PictureUploadRequest implements Serializable {
-    /**
-     * 图片id（用于修改）
-     */
-    private Long id;
-    /**
-     * 文件地址
-     */
-    private String fileUrl;
+public class PictureReviewRequest implements Serializable {
 
     /**
-     * 图片名称
+     * id
      */
-    private String picName;
+    private Long id;
+
+    /**
+     * 状态：0-待审核, 1-通过, 2-拒绝
+     */
+    private Integer reviewStatus;
+
+    /**
+     * 审核信息
+     */
+    private String reviewMessage;
+
 
     private static final long serialVersionUID = 1L;
 }
+
