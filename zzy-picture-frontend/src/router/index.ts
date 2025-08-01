@@ -1,45 +1,50 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import HomePage from "@/pages/HomePage.vue";
-import UserManagePage from "@/pages/admin/UserManagePage.vue";
-import UserRegisterPage from "@/pages/user/UserRegisterPage.vue";
-import UserLoginPage from "@/pages/user/UserLoginPage.vue";
-import ACCESS_ENUM from "@/access/accessEnum.ts";
+import HomePage from '@/pages/HomePage.vue'
+import UserLoginPage from '@/pages/user/UserLoginPage.vue'
+import UserRegisterPage from '@/pages/user/UserRegisterPage.vue'
+import UserManagePage from '@/pages/admin/UserManagePage.vue'
+import AddPicturePage from '@/pages/AddPicturePage.vue'
+import PictureManagePage from '@/pages/admin/PictureManagePage.vue'
+import PictureDetailPage from '@/pages/PictureDetailPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: '主页',
+      name: 'home',
       component: HomePage,
-      meta:{
-        hideInMenu: false,
-      },
     },
     {
       path: '/user/login',
       name: '用户登录',
       component: UserLoginPage,
-      meta:{
-        hideInMenu: true,
-      },
     },
     {
       path: '/user/register',
       name: '用户注册',
       component: UserRegisterPage,
-      meta:{
-        hideInMenu: true,
-      },
     },
     {
       path: '/admin/userManage',
-      name: 'adminUserManage',
+      name: '用户管理',
       component: UserManagePage,
-      meta: {
-        access: ACCESS_ENUM.ADMIN,
-      },
+    },
+    {
+      path: '/admin/pictureManage',
+      name: '图片管理',
+      component: PictureManagePage,
+    },
+    {
+      path: '/add_picture',
+      name: '创建图片',
+      component: AddPicturePage,
+    },
+    {
+      path: '/picture/:id',
+      name: '图片详情',
+      component: PictureDetailPage,
+      props: true,
     },
     {
       path: '/about',
@@ -48,12 +53,8 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
-      meta: {
-        hideInMenu: false,
-      },
-    }
+    },
   ],
-
 })
 
 export default router
