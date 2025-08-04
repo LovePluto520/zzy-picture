@@ -2,9 +2,6 @@ server:
   port: 8123
   servlet:
     context-path: /api
-    session:
-      cookie:
-        max-age: 2592000
 spring:
   application:
     name: zzy-picture-backend
@@ -14,18 +11,6 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-  # Redis 配置
-  redis:
-    database: 0
-    host: 127.0.0.1
-    password: 123456
-    port: 6379
-    timeout: 5000
-  # Session 配置
-  session:
-    store-type: redis
-    # session 30 天后过期
-    timeout: 2592000
 
 
     # 数据库配置
