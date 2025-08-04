@@ -26,7 +26,7 @@ public interface PictureService extends IService<Picture> {
     /**
      * 上传图片
      *
-     * @param 文件输入流
+     * @param inputSource
      * @param pictureUploadRequest
      * @param loginUser
      * @return
@@ -84,5 +84,11 @@ public interface PictureService extends IService<Picture> {
      */
     Integer uploadPictureByBatch(PictureUploadByBatchRequest pictureUploadByBatchRequest,
                                  User loginUser);
+    /**
+     * 清理图片文件
+     *
+     * @param oldPicture
+     */
+    void clearPictureFile(Picture oldPicture);
 
 }
