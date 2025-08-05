@@ -1,4 +1,4 @@
-package com.zzy.zzypicturebackend.model.vo;
+package com.zzy.zzypicturebackend.model.dto.vo;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.zzy.zzypicturebackend.model.vo;
+package com.zzy.zzypicturebackend.model.dto.vo;
 
 import cn.hutool.json.JSONUtil;
 import com.zzy.zzypicturebackend.model.entity.Picture;
@@ -40,6 +40,11 @@ public class PictureVO implements Serializable {
      * 标签
      */
     private List<String> tags;
+    /**
+     * 空间 id
+     */
+    private Long spaceId;
+
 
     /**
      * 分类

@@ -3,7 +3,6 @@ package com.zzy.zzypicturebackend.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzy.zzypicturebackend.exception.BusinessException;
@@ -11,8 +10,8 @@ import com.zzy.zzypicturebackend.exception.ErrorCode;
 import com.zzy.zzypicturebackend.model.dto.user.UserQueryRequest;
 import com.zzy.zzypicturebackend.model.entity.User;
 import com.zzy.zzypicturebackend.model.enums.UserRoleEnum;
-import com.zzy.zzypicturebackend.model.vo.LoginUserVO;
-import com.zzy.zzypicturebackend.model.vo.UserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.LoginUserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.UserVO;
 import com.zzy.zzypicturebackend.service.UserService;
 import com.zzy.zzypicturebackend.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +19,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import javax.management.Query;
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;

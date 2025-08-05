@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zzy.zzypicturebackend.model.dto.user.UserQueryRequest;
 import com.zzy.zzypicturebackend.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zzy.zzypicturebackend.model.vo.LoginUserVO;
-import com.zzy.zzypicturebackend.model.vo.UserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.LoginUserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

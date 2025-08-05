@@ -1,6 +1,5 @@
 package com.zzy.zzypicturebackend.controller;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zzy.zzypicturebackend.annotation.AuthCheck;
 import com.zzy.zzypicturebackend.common.BaseResponse;
@@ -12,8 +11,8 @@ import com.zzy.zzypicturebackend.exception.ErrorCode;
 import com.zzy.zzypicturebackend.exception.ThrowUtils;
 import com.zzy.zzypicturebackend.model.dto.user.*;
 import com.zzy.zzypicturebackend.model.entity.User;
-import com.zzy.zzypicturebackend.model.vo.LoginUserVO;
-import com.zzy.zzypicturebackend.model.vo.UserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.LoginUserVO;
+import com.zzy.zzypicturebackend.model.dto.vo.UserVO;
 import com.zzy.zzypicturebackend.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;

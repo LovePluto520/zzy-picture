@@ -3,15 +3,10 @@ package com.zzy.zzypicturebackend.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureQueryRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureReviewRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureUploadByBatchRequest;
-import com.zzy.zzypicturebackend.model.dto.picture.PictureUploadRequest;
+import com.zzy.zzypicturebackend.model.dto.picture.*;
 import com.zzy.zzypicturebackend.model.entity.Picture;
 import com.zzy.zzypicturebackend.model.entity.User;
-import com.zzy.zzypicturebackend.model.vo.PictureVO;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+import com.zzy.zzypicturebackend.model.dto.vo.PictureVO;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -90,5 +85,29 @@ public interface PictureService extends IService<Picture> {
      * @param oldPicture
      */
     void clearPictureFile(Picture oldPicture);
+    /**
+     * 删除图片
+     *
+     * @param pictureId
+     * @param loginUser
+     */
+    void deletePicture(long pictureId, User loginUser);
+
+    /**
+     * 编辑图片
+     *
+     * @param pictureEditRequest
+     * @param loginUser
+     */
+    void editPicture(PictureEditRequest pictureEditRequest, User loginUser);
+
+    /**
+     * 校验空间图片的权限
+     *
+     * @param loginUser
+     * @param picture
+     */
+    void checkPictureAuth(User loginUser, Picture picture);
+
 
 }

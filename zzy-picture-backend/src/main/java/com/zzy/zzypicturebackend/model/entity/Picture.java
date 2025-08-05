@@ -88,6 +88,11 @@ public class Picture implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+    /**
+     * 空间 id
+     */
+    private Long spaceId;
+
 
     /**
      * 是否删除
